@@ -24,7 +24,7 @@ pub fn funzione_esercizio6() {
         Ok(_) => {
             let vector_reverse = reverse_vector(input);
             match vector_reverse {
-                Ok(reverse) => println!("Stampami stringa invertita dentro il vettore: {}", reverse),
+                Ok(reverse) => println!("Stampami stringa invertita dentro il vettore: {:?}", reverse),
                 Err(e) => eprintln!("{}", e.to_string()),
             }
         }
@@ -33,21 +33,25 @@ pub fn funzione_esercizio6() {
 
 }
 
-  fn reverse_vector(s: String) -> Result<String, Error> {
+
+  fn reverse_vector(s: String) -> Result<Vec<char>, Error> {
     
     if s == "\n" {
         return Err(Error::new(io::ErrorKind::Other, "Voglio una stringa non vuota"));
     }
 
-    let mut vector: String = String::new();
+    let mut vector: Vec<char> = Vec::new();
 
     let vettore_stringa: Vec<char> = s.chars().rev().collect();
 
     for character in vettore_stringa {
         // println!("{}", character);
-        vector.push(character);
+        if character != '\n' {
+            vector.push(character);
+        }
     }
-    // println!("Vector: {}", vector);
+    println!("Vector: {:?}", vector);
+
 
     Ok(vector)
 

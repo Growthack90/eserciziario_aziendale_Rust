@@ -4,6 +4,7 @@ mod esercizio_3;
 mod esercizio_4;
 mod esercizio_5;
 mod esercizio_6;
+mod esercizio_7;
 
 fn main() {
 
@@ -17,5 +18,7 @@ fn main() {
     
     // esercizio_5::funzione_esercizio5();
 
-    esercizio_6::funzione_esercizio6();
+    // esercizio_6::funzione_esercizio6();
+
+    esercizio_7::funzione_esercizio7();
 }

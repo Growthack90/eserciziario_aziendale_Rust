@@ -34,6 +34,7 @@ pub fn funzione_esercizio5() {
 
 }
 
+
   fn alph_index_string(s: String) -> Result<String, Error> {
 
 
@@ -53,25 +54,21 @@ pub fn funzione_esercizio5() {
     }
     
 
-    let index_word = String::new();
+    let mut index_word: String = String::new();
 
     for el_word in s.chars().enumerate() {
-        println!("parola: {:?}", el_word);
+        println!("singolo carattere parola: {}", el_word.1);
 
         for el_alph in alphabeth.chars().enumerate() {
-            println!("alfabeto: {:?}", el_alph);
-            
+            println!("carattere parola trovato nell'alfalfabeto: {:?}", el_alph);
             if el_alph.1 == el_word.1 {
-                println!("Inserisci nel nuovo vettore {:?}", index_word);
-
+                println!("Inserisci indice alfabetico parola {:?}", index_word);
+                index_word.push(el_word.1);
             }
-
         }
-
     }
     
-    println!("************************************************************");
 
-    Ok(s)
+    Ok(index_word)
 
   }
