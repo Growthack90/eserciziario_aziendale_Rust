@@ -18,7 +18,10 @@ pub fn funzione_esercizio7() {
         Ok(_) => {
             let vector_reverse = reverse_vector(input);
             match vector_reverse {
-                Ok(reverse) => println!("Stampami stringa invertita dentro il vettore: {:?}", reverse),
+                Ok(reverse) => println!(
+                    "Stampami stringa invertita dentro il vettore: {:?}",
+                    reverse
+                ),
                 Err(e) => eprintln!("{}", e.to_string()),
             }
         }
@@ -40,45 +43,33 @@ fn reverse_vector(s: String) -> Result<Vec<char>, Error> {
 
     let mut nuovo_vettore: Vec<char> = Vec::new();
 
-    let mut n = vettore_stringa.len() - 1;
-    println!("Prova debug: {:?}", n);
-    
-    // let i = 1;
-
-    
     for character in &vettore_stringa {
-        println!("character: {}", character);
-        
+        // println!("character: {}", character);
         if character != &'\n' {
             vector.push(*character);
         }
-
-        for i in 0..n {
-            println!("Prova debug: {}", i);
-        }
-
-        // while i <= n {
-        //     println!("{}", n);
-        //     n -= 1;
-        //     nuovo_vettore.push(*character);
-        // }
-        
-        println!("Vector: {:?}", vector);
-        println!("Vector nuevo: {:?}", nuovo_vettore);
     }
-    
-    Ok(vector)
 
+    // println!("Vector: {:?}", vector);   // Vector: ['c', 'i', 'a', 'o']
+
+    // let mut x = vector.pop();
+    // println!("x: {:?}", x);
+
+    // println!("Vector: {:?}", vector);   // Vector: ['c', 'i', 'a']
+
+    let mut n = vector.len();
+
+    while n!= 0 {   // n è usize ciòè senza segno perciò nn può essere negativo
+        println!("{}", n);
+        nuovo_vettore.push(vector[n - 1]);
+        println!("nuovo vettore: {:?}", nuovo_vettore); // nuovo vettore: ['o', 'a', 'i', 'c']   
+        n -= 1;
+    }
+
+    println!("nuovo vettore: {:?}", nuovo_vettore);
+
+    Ok(nuovo_vettore)
 }
-
-
-// println!("Stampa di Debug nella funzione: {:?}", vector);
-
-
-
-// for c in 0..n {
-//     println!("Prova debug: {}", c);
-// }
 
 // let i = 1;
 
@@ -86,11 +77,6 @@ fn reverse_vector(s: String) -> Result<Vec<char>, Error> {
 //     println!("{}", n);
 //     n -= 1;
 // }
-
-// for el_word in s.chars().enumerate() {
-//     println!("singolo carattere parola: {}", el_word.1);
-// }
-
 
 // FOR DI JAVA
 // for (int i = input.length() - 1; i >= 0; i--) {

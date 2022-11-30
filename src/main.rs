@@ -21,4 +21,5 @@ fn main() {
     // esercizio_6::funzione_esercizio6();
 
     esercizio_7::funzione_esercizio7();
+    
 }
