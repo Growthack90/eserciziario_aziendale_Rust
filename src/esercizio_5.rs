@@ -24,7 +24,7 @@ pub fn funzione_esercizio5() {
         Ok(_) => {
             let transformation_input = alph_index_string(input);
             match transformation_input {
-                Ok(index_alph) => println!("Indice alfabetico- della parola: {}", index_alph),
+                Ok(index_alph) => println!("alphabetical index corresponding input character: {}", index_alph),
                 Err(e) => eprintln!("{}", e.to_string()),
             }
 
@@ -36,39 +36,46 @@ pub fn funzione_esercizio5() {
 
 
   fn alph_index_string(s: String) -> Result<String, Error> {
-
+      
+      // NO EMPTY STRING
+      if s == "\n" {
+          return Err(Error::new(io::ErrorKind::Other, "Voglio una stringa non vuota"));
+        }
+        
+        // NO NUMERIC VALUE
+        for el_num in s.chars() {
+            if el_num.is_numeric() {
+                return Err(Error::new(io::ErrorKind::Other, "Non voglio valori numerici"));
+            }
+            // println!("{}", el_num.is_numeric());
+        }
+        
 
     let alphabeth = "abcdefghijklmnopqrstuvwxz";
 
-    // NO STRINGA VUOTA
-    if s == "\n" {
-        return Err(Error::new(io::ErrorKind::Other, "Voglio una stringa non vuota"));
-    }
+    let mut string: String = String::new();
+     
+    let mut new_string = Vec::<usize>::new();
 
-    // NO VALORI NUMERICI
-    for el_num in s.chars() {
-        if el_num.is_numeric() {
-            return Err(Error::new(io::ErrorKind::Other, "Non voglio valori numerici"));
-        }
-        // println!("{}", el_num.is_numeric());
-    }
-    
-
-    let mut index_word: String = String::new();
-
-    for el_word in s.chars().enumerate() {
-        println!("singolo carattere parola: {}", el_word.1);
-
-        for el_alph in alphabeth.chars().enumerate() {
-            println!("carattere parola trovato nell'alfalfabeto: {:?}", el_alph);
-            if el_alph.1 == el_word.1 {
-                println!("Inserisci indice alfabetico parola {:?}", index_word);
-                index_word.push(el_word.1);
+        for char_string in s.chars().enumerate() {
+            if char_string.1 != '\n' {
+                // println!("single char INPUT: {}", char_string.1);
+                    for char_alph in alphabeth.chars().enumerate() {
+                        // println!("single char alphabet: {:?}", char_alph);
+                        if char_string.1 == char_alph.1 {
+                            string.push(char_string.1);
+                            println!("char string: {} --> index alph: {}", char_string.1, char_alph.0);
+                            
+                            new_string.push(char_string.0);
+                        }
+                   }
             }
         }
-    }
-    
 
-    Ok(index_word)
+        println!("STRING: {}", string);
+
+        println!("NEW STRING: {:?}", new_string);
+
+    Ok(string)
 
   }

@@ -1,8 +1,7 @@
 /**************************************************************************************************/
 /**************************************************************************************************/
 /* ESERCIZIO 4 */
-// funzione che passando una stringa mi restituisce una stringa
-// con solo le vocali (senza consonanti) della stringa iniziale
+// funzione che passando una stringa restituisce stringa con solo vocali (senza consonanti)
 /**************************************************************************************************/
 /**************************************************************************************************/
 
