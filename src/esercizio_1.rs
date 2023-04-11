@@ -31,6 +31,33 @@ pub fn funzione_esercizio1() {
     s.chars().rev().collect()
   }
 
+// TEST
+  #[cfg(test)]
+  mod tests {
+      use super::*;
+  
+      #[test]
+      fn test_reverse_string_ok() {
+          let input = String::from("ciao");
+          let expected_output = String::from("oaic");
+          assert_eq!(reverse_string(input), expected_output);
+      }
+
+      #[test]
+      fn test_reverse_string_uppercase_ok() {
+          let input = String::from("CIAO");
+          let expected_output = String::from("OAIC");
+          assert_eq!(reverse_string(input), expected_output);
+      }
+      
+      #[test]
+      fn test_reverse_string_uppercase_ko() {
+          let input = String::from("CIAO");
+          let expected_output = String::from("oaic");
+          assert_eq!(reverse_string(input), expected_output);
+      }
+  }
+
 /*********************************/
 /* SOLUZIONI ALTERNATIVE */
 /*********************************/

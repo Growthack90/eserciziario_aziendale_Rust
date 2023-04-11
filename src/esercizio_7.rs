@@ -24,10 +24,7 @@ pub fn funzione_esercizio7() {
         Ok(_) => {
             let vector_reverse = reverse_vector(input);
             match vector_reverse {
-                Ok(reverse) => println!(
-                    "Stampami stringa invertita dentro il vettore: {:?}",
-                    reverse
-                ),
+                Ok(reverse) => println!("Stampami stringa invertita dentro il vettore: {:?}", reverse),
                 Err(e) => eprintln!("{}", e.to_string()),
             }
         }
@@ -62,18 +59,10 @@ fn reverse_vector(s: String) -> Result<Vec<char>, Error> {
 
     while n!= 0 {   // n è usize ciòè senza segno perciò nn può essere negativo
         println!("{}", n);
-        nuovo_vettore.push(vector[n - 1]);
-        println!("nuovo vettore: {:?}", nuovo_vettore); // nuovo vettore: ['o', 'a', 'i', 'c']   
+        nuovo_vettore.push(vector[n - 1]);  
+        println!("nuovo vettore: {:?}", nuovo_vettore);     // nuovo vettore: ['o', 'a', 'i', 'c'] 
         n -= 1;
     }
 
-    println!("nuovo vettore: {:?}", nuovo_vettore);
-
     Ok(nuovo_vettore)
 }
-
-// FOR DI JAVA
-// for (int i = input.length() - 1; i >= 0; i--) {
-//     System.out.println("prova ciclo - " + i);
-//     output.append(input.charAt(i));
-// }
