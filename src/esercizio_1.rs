@@ -85,7 +85,7 @@ fn reverse_string(input: String) -> Result<String, &'static str> {
     Ok(output)
 }
 
-fn main() {
+pub fn funzione_esercizio1() {
     println!("Please enter a string to reverse:");
     let mut input = String::new();
     io::stdin()
