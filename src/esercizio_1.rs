@@ -78,9 +78,7 @@ pub fn funzione_esercizio1() {
 //   fn reverse_string(s: &str) -> String {
 //     s.chars().rev().collect()
 //   }
-
 /*********************************/
-
 // fn main() {
 //   let str1 = String::from("Hello, world!");
 //   let str2 = reverse(&str1);
@@ -94,9 +92,7 @@ pub fn funzione_esercizio1() {
 //     }
 //     result
 // }
-
 /*********************************/
-
 // use std::io;
 
 // fn main() {
@@ -123,5 +119,4 @@ pub fn funzione_esercizio1() {
 //     }
 
 // }
-
 /*********************************/

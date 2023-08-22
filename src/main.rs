@@ -15,9 +15,9 @@ fn main() {
 
     // esercizio_1::funzione_esercizio1();
     
-    esercizio_1_1::funzione_esercizio1_1();
+    // esercizio_1_1::funzione_esercizio1_1();
 
-    // esercizio_2::funzione_esercizio2();
+    esercizio_2::funzione_esercizio2();
 
     // esercizio_3::funzione_esercizio3();
 
