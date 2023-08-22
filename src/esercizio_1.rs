@@ -13,115 +13,58 @@
 /*********************************/
 /*********************************/
 // /********************************************************************************/
-// use std::io;
-
-// pub fn funzione_esercizio1() {
-  
-//     let mut input = String::new();
-
-//         println!("\nCosa vuoi invertire?\n");
-
-//         let read_line = io::stdin().read_line(&mut input);
-
-//         match read_line {
-//         Ok(_) => {
-//             let reverse = reverse_string(input);
-//             println!("{}", reverse);
-//         }
-//         Err(error) => println!("error: {error}"),
-//         }
-
-//   }
-
-//   fn reverse_string(s: String) -> String {
-//     s.chars().rev().collect()
-//   }
-
-
-// /* TEST WITH ASSERT_EQ */
-//   #[cfg(test)]
-//   mod tests {
-//       use super::*;
-  
-//       #[test]
-//       fn test_reverse_string_ok() {
-//           let input = String::from("ciao");
-//           let expected_output = String::from("oaic");
-//           assert_eq!(reverse_string(input), expected_output);
-//       }
-
-//       #[test]
-//       fn test_reverse_string_uppercase_ok() {
-//           let input = String::from("CIAO");
-//           let expected_output = String::from("OAIC");
-//           assert_eq!(reverse_string(input), expected_output);
-//       }
-      
-//       #[test]
-//       fn test_reverse_string_uppercase_ko() {
-//           let input = String::from("CIAO");
-//           let expected_output = String::from("oaic");
-//           assert_eq!(reverse_string(input), expected_output);
-//       }
-//   }
-// /********************************************************************************/
-
-
-
-/*********************************/
-/*********************************/
-/* SOLUZIONE_2 + TEST CON MATCH */
-/*********************************/
-/*********************************/
-/********************************************************************************/
-  use std::io;
-
-fn reverse_string(input: String) -> Result<String, &'static str> {
-    if input.is_empty() {
-        return Err("Input string is empty");
-    }
-
-    let output = input.chars().rev().collect();
-    Ok(output)
-}
+use std::io;
 
 pub fn funzione_esercizio1() {
-    println!("Please enter a string to reverse:");
+  
     let mut input = String::new();
-    io::stdin()
-        .read_line(&mut input)
-        .expect("Failed to read line");
-    input = input.trim().to_string();
 
-    match reverse_string(input) {
-        Ok(output) => println!("Reversed string: {}", output),
-        Err(err) => eprintln!("Failed to reverse string: {}", err),
-    }
-}
+        println!("\nCosa vuoi invertire?\n");
 
-// /* TEST WITH MATCH */
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn test_reverse_string() {
-        let input = String::from("hello");
-        let expected_output = String::from("olleh");
-        match reverse_string(input) {
-            Ok(output) => assert_eq!(output, expected_output),
-            Err(err) => panic!("Failed to reverse string: {}", err),
+        let read_line = io::stdin().read_line(&mut input);
+
+        match read_line {
+        Ok(_) => {
+            let reverse = reverse_string(input);
+            println!("{}", reverse);
         }
-    }
-}
-/********************************************************************************/
+        Err(error) => println!("error: {error}"),
+        }
+
+  }
+
+  fn reverse_string(s: String) -> String {
+    s.chars().rev().collect()
+  }
 
 
+/* TEST WITH ASSERT_EQ */
+  #[cfg(test)]
+  mod tests {
+      use super::*;
+  
+      #[test]
+      fn test_reverse_string_ok() {
+          let input = String::from("ciao");
+          let expected_output = String::from("oaic");
+          assert_eq!(reverse_string(input), expected_output);
+      }
 
-
-
-
-
-
+      #[test]
+      fn test_reverse_string_uppercase_ok() {
+          let input = String::from("CIAO");
+          let expected_output = String::from("OAIC");
+          assert_eq!(reverse_string(input), expected_output);
+      }
+      
+      #[test]
+      fn test_reverse_string_uppercase_ko() {
+          let input = String::from("CIAO");
+          let expected_output = String::from("oaic");
+          assert_ne!(reverse_string(input), expected_output);
+      }
+  }
+// /********************************************************************************/
 
 /*********************************/
 /* SOLUZIONI ALTERNATIVE */

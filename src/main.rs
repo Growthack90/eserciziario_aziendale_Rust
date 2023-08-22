@@ -1,4 +1,5 @@
 mod esercizio_1;
+mod esercizio_1_1;
 mod esercizio_2;
 mod esercizio_3;
 mod esercizio_4;
@@ -6,9 +7,15 @@ mod esercizio_5;
 mod esercizio_6;
 mod esercizio_7;
 
+mod prova_metodi;
+
 fn main() {
 
-    esercizio_1::funzione_esercizio1();
+    // prova_metodi::prova_metodi();
+
+    // esercizio_1::funzione_esercizio1();
+    
+    esercizio_1_1::funzione_esercizio1_1();
 
     // esercizio_2::funzione_esercizio2();
 
