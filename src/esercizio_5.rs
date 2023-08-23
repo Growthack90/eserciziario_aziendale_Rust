@@ -50,8 +50,8 @@ pub fn funzione_esercizio5() {
             // println!("{}", el_num.is_numeric());
         }
         
-
-    let alphabeth = "abcdefghijklmnopqrstuvwxz";
+        // MATCH ALPHABET-INDEX 
+    let alphabeth = "abcdefghijklmnopqrstuvwyxz";
 
     let mut string: String = String::new();
      
@@ -65,10 +65,15 @@ pub fn funzione_esercizio5() {
                         if char_string.1 == char_alph.1 {
                             string.push(char_string.1);
                             println!("char string: {} --> index alph: {}", char_string.1, char_alph.0);
-                            
-                            new_string.push(char_string.0);
+                            // println!("string: {}", string);
+                            new_string.push(char_alph.0);
+                            // println!("new_string: {:?}", new_string);
                         }
-                   }
+
+                        // println!("Alphabetic cycle matching foreach char: {:?}", char_alph);
+                    }
+
+                    // println!("Matching char-index: {:?}", char_string);
             }
         }
 
