@@ -15,8 +15,6 @@ use std::result::Result;
 pub fn funzione_esercizio3() {
     let mut array = Vec::<i32>::new();
 
-    // io::stdin().read_line(&mut array);
-
     array.push(13);
     array.push(5);
     array.push(10);
@@ -27,16 +25,12 @@ pub fn funzione_esercizio3() {
     println!("Array non ordinato: {:?}", array);
     println!("*********************************************************************");
 
-
-    
     let array_ordinato = order_array(array);
-        match array_ordinato {
-            Ok(new_array) => println!("Array ordinato: {:?}", new_array),
-            Err(e) => println!("Errore {:?}", e),
-        }
-
+    match array_ordinato {
+        Ok(new_array) => println!("Array ordinato: {:?}", new_array),
+        Err(e) => println!("Errore {:?}", e),
+    }
 }
-
 
 fn order_array(mut arr: Vec<i32>) -> Result<Vec<i32>, Error> {
     // println!("restituire un result che contiene un array di interi (in ordine crescente) o un errore");
@@ -51,16 +45,14 @@ fn order_array(mut arr: Vec<i32>) -> Result<Vec<i32>, Error> {
 
     let mut posizione_min_temp = 0;
 
-
     for _ in arr.clone() {
-
         for (index, element) in arr.iter().enumerate() {
             if *element < minimo_temporaneo {
                 minimo_temporaneo = *element;
                 posizione_min_temp = index;
             }
         }
-        
+
         arr.remove(posizione_min_temp);
 
         ordering_array.push(minimo_temporaneo);
@@ -68,12 +60,48 @@ fn order_array(mut arr: Vec<i32>) -> Result<Vec<i32>, Error> {
         if arr.len() >= 1 {
             minimo_temporaneo = arr[0];
         }
-        
-        posizione_min_temp = 0;
-        
 
+        posizione_min_temp = 0;
     }
 
     Ok(ordering_array)
+}
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_order_array_empty() {
+        let input: Vec<i32> = Vec::new();
+        let result = order_array(input);
+        assert!(result.is_err());
+    }
+
+    #[test]
+    fn test_order_array_single_element() {
+        let input = vec![42];
+        let result = order_array(input);
+        assert!(result.is_err());
+    }
+
+    #[test]
+    fn test_order_array_multiple_elements() {
+        let input = vec![13, 5, 10, 1, 2];
+        let expected_output = vec![1, 2, 5, 10, 13];
+        let result = order_array(input.clone());
+        assert!(result.is_ok());
+        let ordered_array = result.unwrap();
+        assert_eq!(ordered_array, expected_output);
+    }
+
+    #[test]
+    fn test_order_array_large_array() {
+        let input = vec![5, 2, 9, 1, 5, 7, 3, 8, 6, 4];
+        let expected_output = vec![1, 2, 3, 4, 5, 5, 6, 7, 8, 9];
+        let result = order_array(input.clone());
+        assert!(result.is_ok());
+        let ordered_array = result.unwrap();
+        assert_eq!(ordered_array, expected_output);
+    }
 }
